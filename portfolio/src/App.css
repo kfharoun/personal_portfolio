@@ -3,7 +3,18 @@
   height: 90vh;
 }
 
+
+
 /* Header */
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  align-items: center;
+  font-size: 1em;
+  padding-top: 20px;
+}
+
 
 .NavBar {
   display: flex;
@@ -11,6 +22,7 @@
   justify-content: space-around;
   font-size: 1.5em;
   position: relative; 
+  z-index: 1;
 }
 
 .Wavey1 {
@@ -47,7 +59,10 @@
 
 
 .Footer {
-  position: relative;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -57,7 +72,7 @@
 
 .Wavey-image {
   position: absolute;
-  top: -120px;
+  top: -50px;
   left: 0;
   width: 100vw; 
   height: 90px; 
@@ -83,6 +98,7 @@
   align-items: center;
   font-size: 1.2em;
   gap: 300px;
+  margin-bottom: 30px;
 }
 
 
@@ -100,10 +116,16 @@
   align-content: center;
   align-items: center;
   margin: 0 auto;
+  overflow: hidden;
+  height: 90vh;
 }
 
 .allhome{
-  max-height: 820px;
+  overflow-y: auto; 
+  max-height: calc(80vh - 80px); 
+  scrollbar-width: none; 
+  -ms-overflow-style: none; 
+  position: relative;
   max-width: auto;
   overflow: auto;
   scrollbar-width: none; 
@@ -118,7 +140,7 @@
 }
 
 .mainComponent {
-  margin: 20em 0 30em;
+  margin: 18em 0 30em;
 }
 
 .aroundName{
@@ -146,3 +168,82 @@
   100% { color: #FFD700; } 
   75% { color: green; } 
 }
+
+.Contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.6em;
+}
+
+
+.box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: #c0c0fc solid 4px;
+  padding: 1px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+transition: all .8s ease;
+}
+
+.projecttitle {
+  color:#C60012;
+  font-size: 1.2em;
+  text-shadow: none;
+  font-weight: 900;
+  margin-left: 20px;
+}
+
+.languages {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  margin-right: 20px;
+  font-weight: 200;
+  color: #a0a0de;
+}
+
+.language {
+  border: solid #c0c0fc 1px;
+  padding: 8px;
+  border-radius: 15px;
+  font-size:.8em;
+}
+
+.linkComponent {
+  padding-bottom: 100px;
+}
+
+.projectLink {
+text-shadow: none;
+}
+
+.box:hover {
+  text-shadow: none;
+  border-radius: 100px;
+}
+
+@keyframes rainbowsarecute {
+  0% { color: #ff0000; } 
+  16.67% { color: #ff7f00; } 
+  33.33% { color: #ffb347; }
+  50% { color: green; }
+  66.67% { color: #015ADA; }
+  83.33% { color: #4b0082; }
+  100% { color: #9400d3; } 
+}
+
+.box:hover .projecttitle {
+  animation: rainbowsarecute 3s infinite;
+}
+
+

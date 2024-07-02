@@ -16,7 +16,7 @@ a {
 
 a:hover {
   color: #015ADA;
-  letter-spacing: 2px;
+  /* font-size: larger; */
   text-shadow: 1px 1px 1px black;
 }
 

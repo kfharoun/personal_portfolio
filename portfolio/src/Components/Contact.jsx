@@ -29,7 +29,7 @@ export default function Contact() {
     setFormData({ name: '', email: '', message: '' })
   }
   return (
-    <div className="container mt-5">
+    <div className="Contact container mt-5">
       <h2>contact</h2>
       {submitStatus === 'success' && (
         <div className="alert alert-success" role="alert">
