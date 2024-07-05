@@ -315,6 +315,30 @@ text-shadow: none;
   margin-left:260px;
 }
 
+.flower5 {
+  background-image: url('./images/flower2.png'); 
+  background-size: cover; 
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  position: absolute;
+  animation: rotateFlowerbottom 3s infinite alternate;
+  margin-top: -30px;
+  margin-left:590px;
+}
+
+.flower6 {
+  background-image: url('./images/flower2.png'); 
+  background-size: cover; 
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  position: absolute;
+  animation: rotateFlowerbottom 2s infinite alternate;
+  margin-top: -10px;
+  margin-left:340px;
+}
+
 @keyframes rotateFlowerbottom {
   0% {
     transform: rotate(0deg);
@@ -460,15 +484,26 @@ color:#a0a0deb6;
 
 .card-img-top{
   object-fit: cover;
+  width: 270px;
+  height: 270px;
+  /* filter: brightness(60%); */
+  transition: all 0.3s ease;
+  border-radius: 10px;
+}
+
+.card-img-top:hover {
+  /* filter: brightness(100%); */
   width: 280px;
-  height: 350px;
+  height: 280px;
 }
 
 .container {
   overflow-y: auto; 
   padding-left: 50px;
   padding-right: 50px;
-  max-height: calc(100vh - 350px); 
+  margin: 0 auto;
+  margin-top: 100px;
+  max-height: 75vh; 
   scrollbar-width: none; 
   -ms-overflow-style: none; 
   position: relative;
@@ -476,4 +511,44 @@ color:#a0a0deb6;
   overflow: auto;
   scrollbar-width: none; 
   -ms-overflow-style: none; 
+  transition: all 0.3s ease;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100vw;
+  gap: 20px;
+  padding-bottom: 50px;
+}
+
+/* About */
+
+.About {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  height: 90vh;
+  gap: 50px;
+}
+
+.profpic {
+  width: 400px;
+  transform: rotate(-10deg);
+  animation: profspin 6s infinite alternate ;
+}
+
+@keyframes profspin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-10deg);
+  }
+}
+.abouttext{
+  width: 600px;
+  color:#d8743e;
+}
+
+.second{
+  color:#8e8ece;
 }

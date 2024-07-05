@@ -15,7 +15,7 @@ a {
 }
 
 a:hover {
-  color: #ABC7CA;
+  color: #a0a0de;
   /* font-size: larger; */
   text-shadow: 1px 1px 1px #a0a0de;
 }

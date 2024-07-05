@@ -66,7 +66,7 @@ export default function Home() {
           <a
             className="projectLink"
             href="/portfolio"
-            onMouseEnter={() => handleMouseEnter('https://i.imgur.com/TZaAjkW.jpg')}
+            onMouseEnter={() => handleMouseEnter('https://i.imgur.com/aBvVcnw.png')}
             onMouseLeave={handleMouseLeave}
           >
             <div className="portfolio box">
