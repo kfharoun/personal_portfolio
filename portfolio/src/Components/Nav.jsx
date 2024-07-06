@@ -58,6 +58,7 @@ const Nav = () => {
       <Modal show={showModal} onHide={closeModal} centered>
         <Modal.Header closeButton>
           <Modal.Title>Let's collaborate!</Modal.Title>
+          <div className='flower7'></div>
         </Modal.Header>
         <Modal.Body>
           {submitStatus === 'success' && (
@@ -122,8 +123,10 @@ const Nav = () => {
                 ></textarea>
               </div>
               <button type="submit" className="btn btn-primary submit">Submit</button>
+              
             </div>
           </form>
+          <div className='flower8'></div>
         </Modal.Body>
       </Modal>
     </div>

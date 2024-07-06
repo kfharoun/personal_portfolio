@@ -339,6 +339,30 @@ text-shadow: none;
   margin-left:340px;
 }
 
+.flower7 {
+  background-image: url('./images/flower2.png'); 
+  background-size: cover; 
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  position: absolute;
+  margin-top: -40px;
+  margin-left:-40px;
+  transform:rotate(-20deg);
+}
+
+.flower8 {
+  background-image: url('./images/flower2.png'); 
+  background-size: cover; 
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  position: absolute;
+  margin-top: -25px;
+  margin-left:450px;
+  transform:rotate(5deg);
+}
+
 @keyframes rotateFlowerbottom {
   0% {
     transform: rotate(0deg);
@@ -432,6 +456,8 @@ text-shadow: none;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+  font-family: "Modak", sans-serif;
+  letter-spacing: 3px;
 }
 
 .form-control {
