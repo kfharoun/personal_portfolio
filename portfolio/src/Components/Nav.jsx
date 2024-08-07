@@ -1,10 +1,8 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Modal from 'react-bootstrap/Modal'
-import Button from 'react-bootstrap/Button'
 import emailjs from 'emailjs-com'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { Cursor } from 'mongoose'
 
 const Nav = () => {
   const [showModal, setShowModal] = useState(false)
