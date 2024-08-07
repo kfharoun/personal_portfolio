@@ -59,8 +59,9 @@ export default function Home() {
         </div>
         
         <div className="linkComponent" onMouseMove={handleMouseMove}>
-        <div className='flower3'></div>
-          <h1 className="title">Product Design</h1>
+        
+        <div className='flower3 productyeah'></div>
+          <h1 className="title productyeah">Product Design</h1>
 
           {/* Portfolio Images */}
           <a
@@ -75,56 +76,23 @@ export default function Home() {
           </a>
           <div className='flower4'></div>
           <h1 className="title">Software Development</h1>
-          {/* Daisy Drop */}
-          <a
-            className="projectLink"
-            href="https://daisydrop.surge.sh/"
-            onMouseEnter={() => handleMouseEnter('https://i.imgur.com/P5ErQfE.png')}
-            onMouseLeave={handleMouseLeave}
-          >
-            <div className="daisydrop box">
-              <p className='projecttitle'>Daisy Drop!</p>
-              <div className="languages">
-                <p className="language">javascript</p>
-                <p className="language">css</p>
-              </div>
-            </div>
-          </a>
+          
+                    {/* Pots Pal */}
 
-          {/* Barbie Collector's Closet */}
-          <a
+                    <a
             className="projectLink"
-            href=""
-            onMouseEnter={() => handleMouseEnter('https://i.imgur.com/pF2DcH2.png')}
+            href="https://github.com/kfharoun/pots_pal?tab=readme-ov-file"
+            onMouseEnter={() => handleMouseEnter('https://i.imgur.com/V0zuoQG.png')}
             onMouseLeave={handleMouseLeave}
           >
-            <div className="barbie box">
-              <p className='projecttitle'>Barbie Collector's Closet</p>
+            <div className="DND box">
+              <p className='projecttitle'>POTS Pal</p>
               <div className="languages">
-                <p className="language">node.js</p>
-                <p className="language">mongodb</p>
-                <p className="language">javascript</p>
-                <p className="language">css</p>
-                <p className="language">axios</p>
-              </div>
-            </div>
-          </a>
-
-          {/* The Recipe */}
-          <a
-            className="projectLink"
-            href=""
-            onMouseEnter={() => handleMouseEnter('https://i.imgur.com/PaggU5e.png')}
-            onMouseLeave={handleMouseLeave}
-          >
-            <div className="recipe box">
-              <p className='projecttitle'>The Recipe.</p>
-              <div className="languages">
-                <p className="language">node.js</p>
-                <p className="language">css</p>
+                <p className="language">python</p>
+                <p className="language">django</p>
                 <p className="language">react</p>
+                <p className="language">scss</p>
                 <p className="language">axios</p>
-                <p className="language">express</p>
               </div>
             </div>
           </a>
@@ -132,7 +100,7 @@ export default function Home() {
           {/* DND Adventurer's Atlas */}
           <a
             className="projectLink"
-            href=""
+            href="https://github.com/kfharoun/dnd_tracker"
             onMouseEnter={() => handleMouseEnter('https://i.imgur.com/VPO3OSe.png')}
             onMouseLeave={handleMouseLeave}
           >
@@ -149,13 +117,71 @@ export default function Home() {
             </div>
           </a>
 
+
+          {/* The Recipe */}
+          <a
+            className="projectLink"
+            href="https://github.com/parpace/u3_lab_react_axios_foodE"
+            onMouseEnter={() => handleMouseEnter('https://i.imgur.com/PaggU5e.png')}
+            onMouseLeave={handleMouseLeave}
+          >
+            <div className="recipe box">
+              <p className='projecttitle'>The Recipe.</p>
+              <div className="languages">
+                <p className="language">node.js</p>
+                <p className="language">css</p>
+                <p className="language">react</p>
+                <p className="language">axios</p>
+                <p className="language">express</p>
+              </div>
+            </div>
+          </a>
+          
+          {/* Daisy Drop */}
+          <a
+            className="projectLink"
+            href="https://github.com/kfharoun/Daisy-Drop"
+            onMouseEnter={() => handleMouseEnter('https://i.imgur.com/P5ErQfE.png')}
+            onMouseLeave={handleMouseLeave}
+          >
+            <div className="daisydrop box">
+              <p className='projecttitle'>Daisy Drop!</p>
+              <div className="languages">
+                <p className="language">javascript</p>
+                <p className="language">css</p>
+              </div>
+            </div>
+          </a>
+         
+          {/* Barbie Collector's Closet */}
+          <a
+            className="projectLink"
+            href="https://github.com/kfharoun/barbie_dream_closet_api"
+            onMouseEnter={() => handleMouseEnter('https://i.imgur.com/pF2DcH2.png')}
+            onMouseLeave={handleMouseLeave}
+          >
+            <div className="barbie box">
+              <p className='projecttitle'>Barbie Collector's Closet</p>
+              <div className="languages">
+                <p className="language">node.js</p>
+                <p className="language">mongodb</p>
+                <p className="language">javascript</p>
+                <p className="language">css</p>
+                <p className="language">axios</p>
+              </div>
+              
+            </div>
+          </a>
           <div ref={bottomRef} />
+          
           <div className="top" onClick={scrollToTop} style={{ textAlign: 'center', marginTop: '20px', cursor: 'pointer' }} >
-            <p className='flowerscroll'>scroll!</p>
+            <p className='flowerscroll two'>scroll!</p>
           </div>
 
         </div>
       </div>
+
+      
 
       {/* Image display */}
       {showImage && (

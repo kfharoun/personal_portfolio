@@ -138,7 +138,7 @@
 }
 
 .mainComponent {
-  margin: 18em 0 30em;
+  margin: 18em 0 35em;
 }
 
 .aroundName{
@@ -162,6 +162,10 @@
   /* animation: colorChange 20s infinite alternate; */
 }
 
+
+.productyeah {
+  padding-top:20px;
+}
 @keyframes colorChange {
   0% { color: black} 
   25% { color: #015ADA; } 
@@ -226,9 +230,9 @@ transition: all .8s ease;
   transition: all 1s ease;
 }
 
-.linkComponent {
-  padding-bottom: 100px;
-}
+/* .linkComponent {
+  padding-bottom: 50px;
+} */
 
 .projectLink {
 text-shadow: none;
@@ -392,8 +396,8 @@ text-shadow: none;
   position: absolute;
   background-image: url('./images/scroll.png'); 
   background-size: cover; 
-  width: 110px;
-  height: 110px;
+  width: 60px;
+  height: 60px;
   border-radius: 100px;
   display: flex;
   align-items: center;
@@ -403,8 +407,22 @@ text-shadow: none;
  margin-bottom: 10px;
 }
 .flowerscroll {
-  background-color: #E57438;
-  width: 20px !important;
+  /* background-color: #E57438;
+  width: 20px !important; */
+  font-weight: 600;
+  border-radius: 100px;
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.617);
+  transform: rotate(10deg);
+}
+
+.flowerscroll.two {
+  width: 5px !important;
+  height: 5px !important;
   font-weight: 600;
   border-radius: 100px;
   font-size: 1em;
