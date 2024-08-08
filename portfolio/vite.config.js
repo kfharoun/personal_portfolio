@@ -5,12 +5,7 @@ export default defineConfig({
   plugins: [react()],
   build: {
     rollupOptions: {
-      external: ['react-bootstrap']
-    }
-  },
-  resolve: {
-    alias: {
-      '@': '/src',
+      external: ['react-bootstrap'],
     },
   },
-})
+});
