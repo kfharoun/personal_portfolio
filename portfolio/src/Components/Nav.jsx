@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import Modal from 'react-bootstrap/Modal'
+import { Modal } from 'react-bootstrap'
 import emailjs from 'emailjs-com'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
