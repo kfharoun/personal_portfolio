@@ -60,8 +60,8 @@ const Nav = () => {
         </Modal.Header>
         <Modal.Body>
           {submitStatus === 'success' && (
-            <div className="alert alert-success" role="alert">
-              Submit successful!
+            <div className="alert alert-success" role="alert emailsuccess">
+              your email has been sent!
             </div>
           )}
           {submitStatus === 'error' && (

@@ -31,7 +31,7 @@
   left: 0;
   width: 100vw; 
   height: 90px; 
-  background: url('/Users/kassharoun/Desktop/GA/personal_portfolio/portfolio/src/images/wiggly1.png');
+  background: url('/src/images/wiggly1.png');
   background-size: 1200px auto;
   animation: wave 40s infinite linear;
   animation-fill-mode: forwards;
