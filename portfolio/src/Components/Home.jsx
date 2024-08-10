@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 
 export default function Home() {
   const [mouseX, setMouseX] = useState(null)
@@ -8,31 +8,73 @@ export default function Home() {
   const [imagePosition, setImagePosition] = useState({ x: 0, y: 0 })
   const bottomRef = useRef(null)
   const topRef = useRef(null)
+  const productDesignRef = useRef(null)
+  const titles = ["Full Stack Development", "Product Design", "Graphic Design", "UX Design"]
+  const [currentTitle, setCurrentTitle] = useState(titles[0])
+  const [animationClass, setAnimationClass] = useState('fadeIn')
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth <= 500)
+    }
+
+    checkIfMobile() // Initial check
+
+    window.addEventListener("resize", checkIfMobile)
+
+    return () => window.removeEventListener("resize", checkIfMobile)
+  }, [])
+
+  useEffect(() => {
+    if (isMobile) {
+      const interval = setInterval(() => {
+        setAnimationClass('fadeOut')
+
+        setTimeout(() => {
+          setCurrentTitle((prevTitle) => {
+            const currentIndex = titles.indexOf(prevTitle)
+            const nextIndex = (currentIndex + 1) % titles.length
+            return titles[nextIndex]
+          })
+          setAnimationClass('fadeIn')
+        }, 500)
+      }, 2000)
+
+      return () => clearInterval(interval)
+    }
+  }, [currentTitle, isMobile])
 
   const handleMouseEnter = (imageSrc) => {
-    setImageSrc(imageSrc)
-    setShowImage(true)
+    if (!isMobile) {
+      setImageSrc(imageSrc)
+      setShowImage(true)
+    }
   }
 
   const handleMouseMove = (e) => {
-    const mouseX = e.clientX
-    const mouseY = e.clientY
-    const maxX = window.innerWidth - 120
+    if (!isMobile) {
+      const mouseX = e.clientX
+      const mouseY = e.clientY
+      const maxX = window.innerWidth - 120
 
-    const imageX = mouseX > maxX / 2 ? mouseX - 120 : mouseX + 20
-    const imageY = mouseY + 20
+      const imageX = mouseX > maxX / 2 ? mouseX - 120 : mouseX + 20
+      const imageY = mouseY + 20
 
-    setMouseX(mouseX)
-    setMouseY(mouseY)
-    setImagePosition({ x: imageX, y: imageY })
+      setMouseX(mouseX)
+      setMouseY(mouseY)
+      setImagePosition({ x: imageX, y: imageY })
+    }
   }
 
   const handleMouseLeave = () => {
-    setShowImage(false)
+    if (!isMobile) {
+      setShowImage(false)
+    }
   }
 
   const scrollToBottom = () => {
-    bottomRef.current.scrollIntoView({ behavior: "smooth" })
+    productDesignRef.current.scrollIntoView({ behavior: "smooth" })
   }
 
   const scrollToTop = () => {
@@ -41,16 +83,15 @@ export default function Home() {
 
   return (
     <div className="Home">
-      
       <div className="allhome">
-      <div ref={topRef} />
+        <div ref={topRef} />
         <div className="mainComponent">
-        
           <div className='flower2'></div>
-          <h4 className="developer aroundName">full stack development</h4>
+          <h4 className="developer aroundName desktop">full stack development</h4>
+          <div className={`aroundName mobile ${animationClass}`}>{currentTitle}</div>
           <h1 className="name">Kass Ferland Haroun</h1>
           <div className='flower1'></div>
-          <h4 className="product aroundName">product design</h4>
+          <h4 className="product aroundName desktop">product design</h4>
 
           {/* Scroll to Bottom */}
           <div className="bottom" onClick={scrollToBottom} style={{ textAlign: 'center', marginTop: '20px', cursor: 'pointer' }} >
@@ -59,29 +100,28 @@ export default function Home() {
         </div>
         
         <div className="linkComponent" onMouseMove={handleMouseMove}>
-        
-        <div className='flower3 productyeah'></div>
-          <h1 className="title productyeah">Product Design</h1>
+          <div className='flower3 productyeah'></div>
+          <h1 className="title productyeah" ref={productDesignRef}>Product Design</h1>
 
-          {/* Portfolio Images */}
-          <a
-            className="projectLink"
-            href="/portfolio"
-            onMouseEnter={() => handleMouseEnter('https://i.imgur.com/aBvVcnw.png')}
-            onMouseLeave={handleMouseLeave}
-          >
-            <div className="portfolio box">
-              <p className='projecttitle'>Portfolio Images</p>
-            </div>
-          </a>
+            {/* Portfolio Images */}
+            <a
+              className="projectLink"
+              href="/portfolio"
+              onMouseEnter={() => handleMouseEnter('https://i.imgur.com/aBvVcnw.png')}
+              onMouseLeave={handleMouseLeave}
+            >
+              <div className="portfolio box">
+                <p className='projecttitle'>Portfolio Images</p>
+              </div>
+            </a>
           <div className='flower4'></div>
           <h1 className="title">Software Development</h1>
           
-                    {/* Pots Pal */}
-
-                    <a
+          {/* Pots Pal */}
+          <a
             className="projectLink"
             href="https://github.com/kfharoun/pots_pal?tab=readme-ov-file"
+            target="_blank" 
             onMouseEnter={() => handleMouseEnter('https://i.imgur.com/V0zuoQG.png')}
             onMouseLeave={handleMouseLeave}
           >
@@ -101,6 +141,7 @@ export default function Home() {
           <a
             className="projectLink"
             href="https://github.com/kfharoun/dnd_tracker"
+            target="_blank" 
             onMouseEnter={() => handleMouseEnter('https://i.imgur.com/VPO3OSe.png')}
             onMouseLeave={handleMouseLeave}
           >
@@ -117,11 +158,11 @@ export default function Home() {
             </div>
           </a>
 
-
           {/* The Recipe */}
           <a
             className="projectLink"
             href="https://github.com/parpace/u3_lab_react_axios_foodE"
+            target="_blank" 
             onMouseEnter={() => handleMouseEnter('https://i.imgur.com/PaggU5e.png')}
             onMouseLeave={handleMouseLeave}
           >
@@ -136,11 +177,12 @@ export default function Home() {
               </div>
             </div>
           </a>
-          
+
           {/* Daisy Drop */}
           <a
             className="projectLink"
             href="https://github.com/kfharoun/Daisy-Drop"
+            target="_blank" 
             onMouseEnter={() => handleMouseEnter('https://i.imgur.com/P5ErQfE.png')}
             onMouseLeave={handleMouseLeave}
           >
@@ -152,11 +194,12 @@ export default function Home() {
               </div>
             </div>
           </a>
-         
+
           {/* Barbie Collector's Closet */}
           <a
             className="projectLink"
             href="https://github.com/kfharoun/barbie_dream_closet_api"
+            target="_blank" 
             onMouseEnter={() => handleMouseEnter('https://i.imgur.com/pF2DcH2.png')}
             onMouseLeave={handleMouseLeave}
           >
@@ -169,7 +212,6 @@ export default function Home() {
                 <p className="language">css</p>
                 <p className="language">axios</p>
               </div>
-              
             </div>
           </a>
           <div ref={bottomRef} />
@@ -181,10 +223,8 @@ export default function Home() {
         </div>
       </div>
 
-      
-
       {/* Image display */}
-      {showImage && (
+      {showImage && !isMobile && (
         <img
           src={imageSrc}
           alt="Hovered Image"
@@ -196,15 +236,13 @@ export default function Home() {
             height: 'auto', 
             zIndex: 10, 
             borderRadius: "30px",
-            transform: mouseX > window.innerWidth / 1.5 ? 'translateX(-100%)' : 'none',
+            transform: mouseX > window.innerWidth / 1.5 ? 'translateX(-100%)' : 'none'
           }}
-        />
-      )}
-    </div>
-  )
-}
-
-
+          />
+        )}
+      </div>
+    )
+  }
 
 
 
