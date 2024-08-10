@@ -54,7 +54,7 @@ const Nav = () => {
       <div className="Wavey1"></div>
 
       <Modal show={showModal} onHide={closeModal} centered dialogClassName="custom-modal">
-        <Modal.Header closeButton>
+        <Modal.Header>
           <Modal.Title>Let's collaborate!</Modal.Title>
           <div className='flower7'></div>
         </Modal.Header>

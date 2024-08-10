@@ -599,6 +599,16 @@
   color: #8e8ece;
 }
 
+.btn-close {
+  display: none;
+}
+
+.custom-modal .modal-header {
+  border-bottom: none;
+  box-shadow: none;   
+  padding-bottom: 15px;   
+}
+
 
 @media screen and (max-height: 1000px) {
   .abouttext {
@@ -609,7 +619,7 @@
   display: none;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 430px) {
   /* home */
   .allhome {
     width: 430px;
