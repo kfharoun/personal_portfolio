@@ -619,7 +619,7 @@
   display: none;
 }
 
-@media screen and (max-width: 430px) {
+@media screen and (max-width: 500px) {
   /* home */
   .allhome {
     width: 430px;
@@ -635,13 +635,13 @@
   }
 
   .aroundName.mobile {
-    font-size: 22px;
+    font-size: 18px;
     text-transform: lowercase;
     color: #d8743e;
     display: flex;
     justify-content: center;
     margin-bottom: 10px;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     transition: opacity 0.5s ease-in-out;
   }
   .aroundName.mobile.fadeOut {
@@ -694,11 +694,11 @@
   }
 
   .flower2 {
-    margin-left: 20em;
+    margin-left: 12em;
 
   }
   .bottom {
-    margin-left: 17em;
+    margin-left: 10em;
     width: 70px;
     height: 70px;
     bottom: 7em;
@@ -725,7 +725,8 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    max-height: 100px;
+    max-height: 110px;
+    max-width: 240px;
   }
 
   .language {
@@ -738,8 +739,11 @@
   }
 
   .languages {
-    gap: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
     margin-left: 10px;
+    justify-content: flex-start;
   }
 
 
@@ -757,13 +761,13 @@
   /* nav */
 
   .header-links {
-    gap: 43%;
+    gap: 23%;
     font-size: 22px;
   }
 
   /* footer */
 .footer-links {
-  gap: 60%;
+  gap: 30%;
   font-size: 20px;
 }
 
@@ -836,5 +840,14 @@
 .modal-body form {
   font-size: 0.9rem; 
 }
+
+.flower3 {
+  margin-left: 220px;
+  margin-top: 10px;
 }
 
+.flower4 {
+  margin-left: -19px;
+}
+
+}

@@ -9,7 +9,7 @@ export default function Home() {
   const bottomRef = useRef(null)
   const topRef = useRef(null)
   const productDesignRef = useRef(null)
-  const titles = ["Full Stack Development", "Product Design", "Graphic Design", "UX Design"]
+  const titles = ["Full Stack Dev", "Product Design", "Graphic Design", "UX Design"]
   const [currentTitle, setCurrentTitle] = useState(titles[0])
   const [animationClass, setAnimationClass] = useState('fadeIn')
   const [isMobile, setIsMobile] = useState(false)
