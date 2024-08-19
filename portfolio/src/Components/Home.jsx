@@ -99,9 +99,9 @@ export default function Home() {
           </div>
         </div>
         
-        <div className="linkComponent" onMouseMove={handleMouseMove}>
+        <div className="linkComponent" onMouseMove={handleMouseMove} ref={productDesignRef}>
           <div className='flower3 productyeah'></div>
-          <h1 className="title productyeah" ref={productDesignRef}>Product Design</h1>
+          <h1 className="title productyeah" >Product Design</h1>
 
             {/* Portfolio Images */}
             <a
