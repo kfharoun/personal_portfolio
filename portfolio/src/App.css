@@ -34,6 +34,7 @@
   background: url('/src/images/wiggly1.png');
   background-size: 1200px auto;
   animation: wave 40s infinite linear;
+  z-index: 5;
   animation-fill-mode: forwards;
 }
 
@@ -126,6 +127,7 @@
   overflow: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  z-index: 0;
 }
 
 .name {
@@ -389,7 +391,7 @@
 }
 
 .top {
-  position: absolute;
+  /* position: absolute; */
   background-image: url('./images/scroll.png');
   background-size: cover;
   width: 60px;
@@ -623,10 +625,11 @@
   /* home */
   .allhome {
     width: 430px;
-      top: 50px;
+      top: 6%;
       max-width: 100%;
       overflow-y: auto;
       position: relative;
+    max-height: 75vh;
   }
 
   .name {
@@ -698,10 +701,10 @@
 
   }
   .bottom {
-    margin-left: 15em;
+    margin-left: 14em;
     width: 70px;
     height: 70px;
-    bottom: 7em;
+    bottom: 2em;
   }
 
   .mainComponent {
@@ -849,6 +852,11 @@
 
 .flower4 {
   margin-left: -19px;
+}
+
+.top {
+  margin-bottom: 50px !important;
+  margin-top: -1px !important;
 }
 
 }
