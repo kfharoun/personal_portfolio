@@ -1,132 +1,184 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect } from "react";
 
 export default function Home() {
-  const [mouseX, setMouseX] = useState(null)
-  const [mouseY, setMouseY] = useState(null)
-  const [showImage, setShowImage] = useState(false)
-  const [imageSrc, setImageSrc] = useState('')
-  const [imagePosition, setImagePosition] = useState({ x: 0, y: 0 })
-  const bottomRef = useRef(null)
-  const topRef = useRef(null)
-  const productDesignRef = useRef(null)
-  const titles = ["Full Stack Dev", "Product Design", "Graphic Design", "UX Design"]
-  const [currentTitle, setCurrentTitle] = useState(titles[0])
-  const [animationClass, setAnimationClass] = useState('fadeIn')
-  const [isMobile, setIsMobile] = useState(false)
+  const [mouseX, setMouseX] = useState(null);
+  const [mouseY, setMouseY] = useState(null);
+  const [showImage, setShowImage] = useState(false);
+  const [imageSrc, setImageSrc] = useState("");
+  const [imagePosition, setImagePosition] = useState({ x: 0, y: 0 });
+  const bottomRef = useRef(null);
+  const topRef = useRef(null);
+  const productDesignRef = useRef(null);
+  const titles = [
+    "Full Stack Dev",
+    "Product Design",
+    "Graphic Design",
+    "UX Design",
+  ];
+  const [currentTitle, setCurrentTitle] = useState(titles[0]);
+  const [animationClass, setAnimationClass] = useState("fadeIn");
+  const [isMobile, setIsMobile] = useState(false);
+  const rotatingWords = [
+    "back-end development",
+    "front-end development",
+    "UI/UX design"
+  ];
+  const rotatingWordsTwo = [
+    "graphic design",
+    "web design",
+    "product design",
+  ];
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
 
   useEffect(() => {
     const checkIfMobile = () => {
-      setIsMobile(window.innerWidth <= 500)
-    }
+      setIsMobile(window.innerWidth <= 500);
+    };
 
-    checkIfMobile() // Initial check
+    checkIfMobile(); // Initial check
 
-    window.addEventListener("resize", checkIfMobile)
+    window.addEventListener("resize", checkIfMobile);
 
-    return () => window.removeEventListener("resize", checkIfMobile)
-  }, [])
+    return () => window.removeEventListener("resize", checkIfMobile);
+  }, []);
 
   useEffect(() => {
     if (isMobile) {
       const interval = setInterval(() => {
-        setAnimationClass('fadeOut')
+        setAnimationClass("fadeOut");
 
         setTimeout(() => {
           setCurrentTitle((prevTitle) => {
-            const currentIndex = titles.indexOf(prevTitle)
-            const nextIndex = (currentIndex + 1) % titles.length
-            return titles[nextIndex]
-          })
-          setAnimationClass('fadeIn')
-        }, 500)
-      }, 2000)
+            const currentIndex = titles.indexOf(prevTitle);
+            const nextIndex = (currentIndex + 1) % titles.length;
+            return titles[nextIndex];
+          });
+          setAnimationClass("fadeIn");
+        }, 500);
+      }, 2000);
 
-      return () => clearInterval(interval)
+      return () => clearInterval(interval);
     }
-  }, [currentTitle, isMobile])
+  }, [currentTitle, isMobile]);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentWordIndex(
+        (prevIndex) => (prevIndex + 1) % rotatingWords.length
+      );
+    }, 3000); // Change word every 2 seconds
+
+    return () => clearInterval(intervalId); // Clean up interval on component unmount
+  }, []);
 
   const handleMouseEnter = (imageSrc) => {
     if (!isMobile) {
-      setImageSrc(imageSrc)
-      setShowImage(true)
+      setImageSrc(imageSrc);
+      setShowImage(true);
     }
-  }
+  };
 
   const handleMouseMove = (e) => {
     if (!isMobile) {
-      const mouseX = e.clientX
-      const mouseY = e.clientY
-      const maxX = window.innerWidth - 120
+      const mouseX = e.clientX;
+      const mouseY = e.clientY;
+      const maxX = window.innerWidth - 120;
 
-      const imageX = mouseX > maxX / 2 ? mouseX - 120 : mouseX + 20
-      const imageY = mouseY + 20
+      const imageX = mouseX > maxX / 2 ? mouseX - 120 : mouseX + 20;
+      const imageY = mouseY + 20;
 
-      setMouseX(mouseX)
-      setMouseY(mouseY)
-      setImagePosition({ x: imageX, y: imageY })
+      setMouseX(mouseX);
+      setMouseY(mouseY);
+      setImagePosition({ x: imageX, y: imageY });
     }
-  }
+  };
 
   const handleMouseLeave = () => {
     if (!isMobile) {
-      setShowImage(false)
+      setShowImage(false);
     }
-  }
+  };
 
   const scrollToBottom = () => {
-    productDesignRef.current.scrollIntoView({ behavior: "smooth" })
-  }
+    productDesignRef.current.scrollIntoView({ behavior: "smooth" });
+  };
 
   const scrollToTop = () => {
-    topRef.current.scrollIntoView({ behavior: "smooth"})
-  }
+    topRef.current.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <div className="Home">
       <div className="allhome">
         <div ref={topRef} />
         <div className="mainComponent">
-          <div className='flower2'></div>
-          <h4 className="developer aroundName desktop">full stack development</h4>
-          <div className={`aroundName mobile ${animationClass}`}>{currentTitle}</div>
+          <div className="flower2"></div>
+          <h4 className="developer aroundName desktop rotating-text">
+            <span className="animated-text">
+              {rotatingWords[currentWordIndex]}
+            </span>
+          </h4>
+          <div className={`aroundName mobile ${animationClass}`}>
+            {currentTitle}
+          </div>
           <h1 className="name">Kass Ferland Haroun</h1>
-          <div className='flower1'></div>
-          <h4 className="product aroundName desktop">product design</h4>
+          <div className="flower1"></div>
+          <h4 className="product aroundName desktop">
+          <span className="animated-text">
+            {rotatingWordsTwo[currentWordIndex]}
+            </span>
+          </h4>
 
           {/* Scroll to Bottom */}
-          <div className="bottom" onClick={scrollToBottom} style={{ textAlign: 'center', marginTop: '20px', cursor: 'pointer' }} >
-            <p className='flowerscroll'>scroll?</p>
+          <div
+            className="bottom"
+            onClick={scrollToBottom}
+            style={{
+              textAlign: "center",
+              marginTop: "20px",
+              cursor: "pointer",
+            }}
+          >
+            <p className="flowerscroll">scroll?</p>
           </div>
         </div>
-        
-        <div className="linkComponent" onMouseMove={handleMouseMove} ref={productDesignRef}>
-          <div className='flower3 productyeah'></div>
-          <h1 className="title productyeah" >Product Design</h1>
 
-            {/* Portfolio Images */}
-            <a
-              className="projectLink"
-              href="/portfolio"
-              onMouseEnter={() => handleMouseEnter('https://i.imgur.com/aBvVcnw.png')}
-              onMouseLeave={handleMouseLeave}
-            >
-              <div className="portfolio box">
-                <p className='projecttitle'>Portfolio Images</p>
-              </div>
-            </a>
-          <div className='flower4'></div>
+        <div
+          className="linkComponent"
+          onMouseMove={handleMouseMove}
+          ref={productDesignRef}
+        >
+          <div className="flower3 productyeah"></div>
+          <h1 className="title productyeah">Product Design</h1>
+
+          {/* Portfolio Images */}
+          <a
+            className="projectLink"
+            href="/portfolio"
+            onMouseEnter={() =>
+              handleMouseEnter("https://i.imgur.com/aBvVcnw.png")
+            }
+            onMouseLeave={handleMouseLeave}
+          >
+            <div className="portfolio box">
+              <p className="projecttitle">Portfolio Images</p>
+            </div>
+          </a>
+          <div className="flower4"></div>
           <h1 className="title">Software Development</h1>
-          
+
           {/* Pots Pal */}
           <a
             className="projectLink"
             href="https://github.com/kfharoun/pots_pal?tab=readme-ov-file"
-            target="_blank" 
-            onMouseEnter={() => handleMouseEnter('https://i.imgur.com/V0zuoQG.png')}
+            target="_blank"
+            onMouseEnter={() =>
+              handleMouseEnter("https://i.imgur.com/V0zuoQG.png")
+            }
             onMouseLeave={handleMouseLeave}
           >
             <div className="DND box">
-              <p className='projecttitle'>POTS Pal</p>
+              <p className="projecttitle">POTS Pal</p>
               <div className="languages">
                 <p className="language">python</p>
                 <p className="language">django</p>
@@ -141,12 +193,14 @@ export default function Home() {
           <a
             className="projectLink"
             href="https://github.com/kfharoun/dnd_tracker"
-            target="_blank" 
-            onMouseEnter={() => handleMouseEnter('https://i.imgur.com/VPO3OSe.png')}
+            target="_blank"
+            onMouseEnter={() =>
+              handleMouseEnter("https://i.imgur.com/VPO3OSe.png")
+            }
             onMouseLeave={handleMouseLeave}
           >
             <div className="DND box">
-              <p className='projecttitle'>DND Adventurer's Atlas</p>
+              <p className="projecttitle">DND Adventurer's Atlas</p>
               <div className="languages">
                 <p className="language">node.js</p>
                 <p className="language">mongodb</p>
@@ -162,12 +216,14 @@ export default function Home() {
           <a
             className="projectLink"
             href="https://github.com/parpace/u3_lab_react_axios_foodE"
-            target="_blank" 
-            onMouseEnter={() => handleMouseEnter('https://i.imgur.com/PaggU5e.png')}
+            target="_blank"
+            onMouseEnter={() =>
+              handleMouseEnter("https://i.imgur.com/PaggU5e.png")
+            }
             onMouseLeave={handleMouseLeave}
           >
             <div className="recipe box">
-              <p className='projecttitle'>The Recipe.</p>
+              <p className="projecttitle">The Recipe.</p>
               <div className="languages">
                 <p className="language">node.js</p>
                 <p className="language">css</p>
@@ -182,12 +238,14 @@ export default function Home() {
           <a
             className="projectLink"
             href="https://github.com/kfharoun/Daisy-Drop"
-            target="_blank" 
-            onMouseEnter={() => handleMouseEnter('https://i.imgur.com/P5ErQfE.png')}
+            target="_blank"
+            onMouseEnter={() =>
+              handleMouseEnter("https://i.imgur.com/P5ErQfE.png")
+            }
             onMouseLeave={handleMouseLeave}
           >
             <div className="daisydrop box">
-              <p className='projecttitle'>Daisy Drop!</p>
+              <p className="projecttitle">Daisy Drop!</p>
               <div className="languages">
                 <p className="language">javascript</p>
                 <p className="language">css</p>
@@ -199,12 +257,14 @@ export default function Home() {
           <a
             className="projectLink"
             href="https://github.com/kfharoun/barbie_dream_closet_api"
-            target="_blank" 
-            onMouseEnter={() => handleMouseEnter('https://i.imgur.com/pF2DcH2.png')}
+            target="_blank"
+            onMouseEnter={() =>
+              handleMouseEnter("https://i.imgur.com/pF2DcH2.png")
+            }
             onMouseLeave={handleMouseLeave}
           >
             <div className="barbie box">
-              <p className='projecttitle'>Barbie Collector's Closet</p>
+              <p className="projecttitle">Barbie Collector's Closet</p>
               <div className="languages">
                 <p className="language">node.js</p>
                 <p className="language">mongodb</p>
@@ -215,11 +275,18 @@ export default function Home() {
             </div>
           </a>
           <div ref={bottomRef} />
-          
-          <div className="top" onClick={scrollToTop} style={{ textAlign: 'center', marginTop: '20px', cursor: 'pointer' }} >
-            <p className='flowerscroll two'>scroll!</p>
-          </div>
 
+          <div
+            className="top"
+            onClick={scrollToTop}
+            style={{
+              textAlign: "center",
+              marginTop: "20px",
+              cursor: "pointer",
+            }}
+          >
+            <p className="flowerscroll two">scroll!</p>
+          </div>
         </div>
       </div>
 
@@ -229,20 +296,18 @@ export default function Home() {
           src={imageSrc}
           alt="Hovered Image"
           style={{
-            position: 'fixed',
-            top: mouseY + 10, 
+            position: "fixed",
+            top: mouseY + 10,
             left: mouseX + 10,
-            width: '300px', 
-            height: 'auto', 
-            zIndex: 10, 
+            width: "300px",
+            height: "auto",
+            zIndex: 10,
             borderRadius: "30px",
-            transform: mouseX > window.innerWidth / 1.5 ? 'translateX(-100%)' : 'none'
+            transform:
+              mouseX > window.innerWidth / 1.5 ? "translateX(-100%)" : "none",
           }}
-          />
-        )}
-      </div>
-    )
-  }
-
-
-
+        />
+      )}
+    </div>
+  );
+}

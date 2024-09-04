@@ -132,9 +132,13 @@
 
 .name {
   color: #E57438;
-  text-shadow: 2px 2px 2px #C3C9D1;
+  /* text-shadow: 2px 2px 2px #C3C9D1; */
   font-size: 6em;
   margin: 0;
+  font-family: "Fraunces", sans-serif;
+  font-weight: 600;
+  font-style: italic;
+  text-transform: uppercase;
 }
 
 .mainComponent {
@@ -460,6 +464,45 @@
 
   100% {
     transform: rotate(-360deg);
+  }
+}
+
+
+.rotating-text {
+  transition: opacity 0.5s ease-in-out;
+  font-family: "Xanh Mono", monospace;
+  font-weight: 400;
+  /* font-style: italic; */
+}
+
+.animated-text {
+  display: inline-block;
+  animation: rotate 3s ease-in-out infinite;
+  transform-origin: 50% 50%;
+  font-family: "Xanh Mono", monospace;
+  font-weight: 400;
+  /* font-style: italic; */
+  text-transform: uppercase;
+  letter-spacing: 10px;
+}
+
+/* The animation keyframes */
+@keyframes rotate {
+  0% {
+    transform: rotateX(90deg);
+    opacity: 0;
+  }
+  25% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+  75% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: rotateX(-90deg);
+    opacity: 0;
   }
 }
 
