@@ -1,8 +1,11 @@
 .App {
-  width: 100vw;
+  max-width: 100vw;
   min-height: 100vh;
   display: flex;
-  flex-direction: column ;;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column ;
+  background-color: #fefbf9;
 }
 
 main {
@@ -69,15 +72,13 @@ main {
   flex-direction: column;
   justify-content: flex-start; /* No centering, let it grow naturally */
   align-items: center;
-  width: 100%;
+  max-width: 100%;
   margin: 0 auto;
+  overflow: hidden; /* Avoid clipping */
 }
 
 .allhome {
-  padding-left: 50px;
-  padding-right: 50px;
-  max-width: auto;
-  overflow: visible; /* Avoid clipping */
+  max-width: 100vw;
   z-index: 0;
 }
 
@@ -214,127 +215,8 @@ main {
   font-weight: 500;
 }
 
-/* .flower1 {
-  background-image: url('./images/flower2.png');
-  background-size: cover;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  position: absolute;
-  animation: rotateFlower 1.5s infinite alternate;
-  margin-top: -20px;
-  margin-left: -50px;
-}
-
-@keyframes rotateFlower {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(20deg);
-  }
-}
-
-.flower2 {
-  background-image: url('./images/flower2.png');
-  background-size: cover;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  position: absolute;
-  animation: rotateFlower 1.3s infinite alternate;
-  margin-top: -20px;
-  margin-left: 920px;
-}
-
-.flower3 {
-  background-image: url('./images/flower2.png');
-  background-size: cover;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  position: absolute;
-  animation: rotateFlowerbottom 3s infinite alternate;
-  margin-top: -10px;
-  margin-left: 580px;
-}
-
-.flower4 {
-  background-image: url('./images/flower2.png');
-  background-size: cover;
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  position: absolute;
-  animation: rotateFlowerbottom 3s infinite alternate;
-  margin-top: 20px;
-  margin-left: 260px;
-}
-
-.flower5 {
-  background-image: url('./images/flower2.png');
-  background-size: cover;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  position: absolute;
-  animation: rotateFlowerbottom 3s infinite alternate;
-  margin-top: -30px;
-  margin-left: 590px;
-}
-
-.flower6 {
-  background-image: url('./images/flower2.png');
-  background-size: cover;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  position: absolute;
-  animation: rotateFlowerbottom 2s infinite alternate;
-  margin-top: -10px;
-  margin-left: 340px;
-}
-
-.flower7 {
-  background-image: url('./images/flower2.png');
-  background-size: cover;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  position: absolute;
-  margin-top: -40px;
-  margin-left: -40px;
-  transform: rotate(-20deg);
-}
-
-.flower8 {
-  background-image: url('./images/flower2.png');
-  background-size: cover;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  position: absolute;
-  margin-top: -25px;
-  margin-left: 450px;
-  transform: rotate(5deg);
-}
-
-@keyframes rotateFlowerbottom {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(50deg);
-  }
-} */
-
 .bottom {
-  background-image: url("./assets/scroll.svg");
   background-size: cover;
-  width: 12.5em;
-  height: 12em;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -359,43 +241,31 @@ main {
   margin-bottom: 10px;
 }
 
-.flowerscroll {
-  /* background-color: #E57438;
-  width: 20px !important; */
-  font-weight: 600;
-  border-radius: 100px;
-  font-size: 1em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.617);
-  transform: rotate(10deg);
+.word-circle {
+  fill: black;
+  transform-origin: 50% 50%;
+  transition: all 0.5s ease-in-out;
 }
 
-.flowerscroll.two {
-  width: 5px !important;
-  height: 5px !important;
-  font-weight: 600;
-  border-radius: 100px;
-  font-size: 1em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.617);
-  transform: rotate(10deg);
+.arrow {
+  transition: all .3s ease;
 }
 
-.bottom:hover,
-.top:hover {
-  animation: bottomFlower 3s infinite alternate;
+.bottom:hover .word-circle {
+  animation: spin 10s infinite linear;
 }
 
-.bottom:hover .flowerscroll,
-.top:hover .flowerscroll {
-  animation: bottomText 3s infinite alternate;
+
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
+
 
 @keyframes bottomFlower {
   0% {
@@ -475,7 +345,7 @@ main {
 
 .image-container {
   position: relative;
-  width: 100%;
+  max-width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -486,7 +356,7 @@ main {
   display: flex;
   top: 0;
   left: 0;
-  min-width: 100%;
+  min-width: 100vw;
   position: relative;
   height: auto;
   object-fit: cover;
@@ -501,7 +371,7 @@ main {
 
 .wavey-accent {
   position: absolute;
-  width: 100%;
+  width: 100vw;
   z-index: 1;
 }
 

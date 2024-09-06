@@ -25,7 +25,7 @@ a::after {
   width: 0;
   height: 2px;
   bottom: 0;
-  background-color: #FF6347;
+  background-color: #de4e35;
   transition: width 0.3s ease;
 }
 
@@ -45,7 +45,7 @@ a:hover::after {
 }
 
 a:hover {
-  color: #FF6347;
+  color: #de4e35;
 }
 
 @keyframes glitch {
