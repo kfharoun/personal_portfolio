@@ -223,7 +223,6 @@ export default function Home() {
               cursor: "pointer",
             }}
           >
-            <p className="flowerscroll">scroll?</p>
           </div>
         </div>
 

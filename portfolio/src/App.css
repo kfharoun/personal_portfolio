@@ -1,6 +1,12 @@
 .App {
   width: 100vw;
-  height: 90vh;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column ;;
+}
+
+main {
+  flex-grow: 1;
 }
 
 /* Header */
@@ -36,7 +42,6 @@
 /* Footer */
 
 .Footer {
-  position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
@@ -62,12 +67,10 @@
 .Home {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-content: center;
+  justify-content: flex-start; /* No centering, let it grow naturally */
   align-items: center;
-  margin-top: 40vh;
-  height: 100vh;
-  overflow: visible; /* Allow content to be fully visible */
+  width: 100%;
+  margin: 0 auto;
 }
 
 .allhome {
@@ -90,7 +93,7 @@
 }
 
 .mainComponent {
-  margin: 18em 0 35em;
+  margin: -23em 0 35em;
 }
 
 .aroundName {
@@ -328,19 +331,17 @@
 } */
 
 .bottom {
-  position: absolute;
-  background-image: url("./images/scroll.png");
+  background-image: url("./assets/scroll.svg");
   background-size: cover;
-  width: 100px;
-  height: 100px;
-  border-radius: 100px;
-  margin-left: 800px;
+  width: 12.5em;
+  height: 12em;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  bottom: 0;
-  transform: rotate(-10deg);
+  cursor: pointer;
+  margin: 40px auto; /* Centers it on the page */
+  position: relative; /* Ensure it's positioned relative to the flow of the content */
 }
 
 .top {
@@ -765,9 +766,9 @@
     bottom: 2em;
   }
 
-  .mainComponent {
+  /* .mainComponent {
     margin-top: 180px;
-  }
+  } */
 
   .title {
     font-size: 23px;
@@ -829,6 +830,8 @@
   .footer-links {
     gap: 30%;
     font-size: 20px;
+    bottom: 0;
+    position: fixed;
   }
 
   /* portfolio */
