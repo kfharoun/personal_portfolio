@@ -51,7 +51,6 @@ const Nav = () => {
         <Link to="/about">about</Link>
         <a className="contactlink" onClick={openModal} style={{ cursor: "pointer" }}>contact</a>
       </div>
-      <div className="Wavey1"></div>
 
       <Modal show={showModal} onHide={closeModal} centered dialogClassName="custom-modal">
         <Modal.Header>

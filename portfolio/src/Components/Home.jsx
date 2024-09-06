@@ -1,4 +1,6 @@
 import { useState, useRef, useEffect } from "react";
+import WaveyBack from "../assets/waveyback.svg";
+import WaveyAccent from "../assets/waveyaccent.svg";
 
 export default function Home() {
   const [mouseX, setMouseX] = useState(null);
@@ -21,14 +23,14 @@ export default function Home() {
   const rotatingWords = [
     "back-end development",
     "front-end development",
-    "UI/UX design"
+    "UI/UX design",
   ];
-  const rotatingWordsTwo = [
-    "graphic design",
-    "web design",
-    "product design",
-  ];
+  const rotatingWordsTwo = ["graphic design", "web design", "product design"];
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const [blurValue, setBlurValue] = useState(20);
+  const [textVisible, setTextVisible] = useState(true);
+  const [opacity, setOpacity] = useState(1);
+  const [nameVisible, setNameVisible] = useState(true);
 
   useEffect(() => {
     const checkIfMobile = () => {
@@ -66,7 +68,7 @@ export default function Home() {
       setCurrentWordIndex(
         (prevIndex) => (prevIndex + 1) % rotatingWords.length
       );
-    }, 3000); // Change word every 2 seconds
+    }, 3000);
 
     return () => clearInterval(intervalId); // Clean up interval on component unmount
   }, []);
@@ -107,28 +109,110 @@ export default function Home() {
     topRef.current.scrollIntoView({ behavior: "smooth" });
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const maxBlur = 20; // Maximum blur value in px
+      const maxScroll = 30; // Scroll threshold where blur should disappear and text hides
+      const maxOpacity = 1; // Maximum opacity value
+
+      // Calculate the new blur value based on scroll position
+      const newBlurValue = Math.max(
+        maxBlur - (scrollPosition / maxScroll) * maxBlur,
+        0
+      );
+      setBlurValue(newBlurValue); // Update the blur value
+
+      const newOpacity = Math.max(
+        maxOpacity - (scrollPosition / maxScroll) * maxOpacity,
+        0.5 // Update the opacity value
+      );
+      setOpacity(newOpacity);
+
+      if (scrollPosition >= maxScroll) {
+        setNameVisible(false); // Hide text when scrolling beyond maxScroll
+      } else {
+        setNameVisible(true); // Show text when above maxScroll
+      }
+
+      // Set text visibility based on scroll position
+      if (scrollPosition >= maxScroll) {
+        setTextVisible(false); // Hide text when scrolling beyond maxScroll
+      } else {
+        setTextVisible(true); // Show text when above maxScroll
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <div className="Home">
       <div className="allhome">
         <div ref={topRef} />
         <div className="mainComponent">
-          <div className="flower2"></div>
-          <h4 className="developer aroundName desktop rotating-text">
-            <span className="animated-text">
-              {rotatingWords[currentWordIndex]}
-            </span>
-          </h4>
-          <div className={`aroundName mobile ${animationClass}`}>
-            {currentTitle}
+          <div className="home-container">
+            {/* Image and Wavey Accent Container */}
+            <div className="image-container">
+              <img
+                src="https://i.imgur.com/Jy643Uh.jpeg"
+                alt="Background"
+                className="masked-image"
+                style={{
+                  filter: `blur(${blurValue}px)`,
+                  transition: "filter 0.3s ease",
+                }}
+              />
+              <div className="wavey-accent">
+                <img
+                  src={WaveyAccent}
+                  alt="Wavey Accent"
+                  className="wavey-image"
+                />
+              </div>
+            </div>
+            <div className="text-container">
+              <h4
+                className="developer aroundName desktop rotating-text"
+                style={{
+                  opacity: textVisible ? 1 : 0, // Fade out the text
+                  transition: "opacity 0.3s ease", // Smooth transition for text visibility
+                }}
+              >
+                <span className="animated-text">
+                  {rotatingWords[currentWordIndex]}
+                </span>
+              </h4>
+              <div className={`aroundName mobile ${animationClass}`}>
+                {currentTitle}
+              </div>
+              <h1
+                className="name"
+                style={{
+                  opacity: nameVisible ? 1 : 0.5, // Fade out the text
+                  transition: "opacity 0.3s ease", // Smooth transition for text visibility
+                  textShadow: nameVisible ? "1px 1px 3px rgba(0, 0, 0, 0.5)" : "none",
+                }}
+              >
+                Kass Ferland Haroun
+              </h1>
+              <h4
+                className="product aroundName desktop"
+                style={{
+                  opacity: textVisible ? 1 : 0, // Fade out the text
+                  transition: "opacity 0.3s ease"
+                }}
+              >
+                <span className="animated-text">
+                  {rotatingWordsTwo[currentWordIndex]}
+                </span>
+              </h4>
+            </div>
           </div>
-          <h1 className="name">Kass Ferland Haroun</h1>
-          <div className="flower1"></div>
-          <h4 className="product aroundName desktop">
-          <span className="animated-text">
-            {rotatingWordsTwo[currentWordIndex]}
-            </span>
-          </h4>
-
           {/* Scroll to Bottom */}
           <div
             className="bottom"
