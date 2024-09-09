@@ -102,7 +102,7 @@ export default function Home() {
   };
 
   const scrollToBottom = () => {
-    productDesignRef.current.scrollIntoView({ behavior: "smooth" });
+    bottomRef.current.scrollIntoView({ behavior: "smooth" });
   };
 
   const scrollToTop = () => {
@@ -450,171 +450,155 @@ export default function Home() {
           </div>
         </div>
 
-        <div
-          className="linkComponent"
-          onMouseMove={handleMouseMove}
-          ref={productDesignRef}
-        >
-          <div className="flower3 productyeah"></div>
-          <h1 className="title productyeah">Product Design</h1>
-
-          {/* Portfolio Images */}
-          <a
-            className="projectLink"
-            href="/portfolio"
-            onMouseEnter={() =>
-              handleMouseEnter("https://i.imgur.com/aBvVcnw.png")
-            }
-            onMouseLeave={handleMouseLeave}
-          >
-            <div className="portfolio box">
-              <p className="projecttitle">Portfolio Images</p>
-            </div>
-          </a>
-          <div className="flower4"></div>
-          <h1 className="title">Software Development</h1>
-
-          {/* Pots Pal */}
-          <a
-            className="projectLink"
-            href="https://github.com/kfharoun/pots_pal?tab=readme-ov-file"
-            target="_blank"
-            onMouseEnter={() =>
-              handleMouseEnter("https://i.imgur.com/V0zuoQG.png")
-            }
-            onMouseLeave={handleMouseLeave}
-          >
-            <div className="DND box">
-              <p className="projecttitle">POTS Pal</p>
-              <div className="languages">
-                <p className="language">python</p>
-                <p className="language">django</p>
-                <p className="language">react</p>
-                <p className="language">scss</p>
-                <p className="language">axios</p>
+          <div className="project-grid" >
+            {/* Portfolio Images */}
+            <div
+              ref={bottomRef}
+              className="project-card"
+              onMouseEnter={() =>
+                handleMouseEnter("https://i.imgur.com/BE9vvqy.jpeg")
+              }
+              onMouseLeave={handleMouseLeave}
+            >
+              <div className="card-content">
+                <h3 className="project-title">GODDEX</h3>
+                <p className="project-languages">Product & Brand Design</p>
+              </div>
+              <div className="image-mask">
+                <img
+                  src="https://i.imgur.com/5UroNuT.jpeg"
+                  alt="Portfolio Images Preview"
+                  className="project-image goddex"
+                />
               </div>
             </div>
-          </a>
 
-          {/* DND Adventurer's Atlas */}
-          <a
-            className="projectLink"
-            href="https://github.com/kfharoun/dnd_tracker"
-            target="_blank"
-            onMouseEnter={() =>
-              handleMouseEnter("https://i.imgur.com/VPO3OSe.png")
-            }
-            onMouseLeave={handleMouseLeave}
-          >
-            <div className="DND box">
-              <p className="projecttitle">DND Adventurer's Atlas</p>
-              <div className="languages">
-                <p className="language">node.js</p>
-                <p className="language">mongodb</p>
-                <p className="language">react</p>
-                <p className="language">css</p>
-                <p className="language">axios</p>
-                <p className="language">express</p>
+            {/* POTS Pal */}
+            <div
+              className="project-card"
+              onMouseEnter={() =>
+                handleMouseEnter("https://i.imgur.com/V0zuoQG.png")
+              }
+              onMouseLeave={handleMouseLeave}
+            >
+              <div className="card-content">
+                <h3 className="project-title">POTS Pal</h3>
+                <p className="project-languages">
+                  Python, Django, React, SCSS, Axios
+                </p>
+              </div>
+              <div className="image-mask">
+                <img
+                  src="https://i.imgur.com/V0zuoQG.png"
+                  alt="POTS Pal Preview"
+                  className="project-image"
+                />
               </div>
             </div>
-          </a>
 
-          {/* The Recipe */}
-          <a
-            className="projectLink"
-            href="https://github.com/parpace/u3_lab_react_axios_foodE"
-            target="_blank"
-            onMouseEnter={() =>
-              handleMouseEnter("https://i.imgur.com/PaggU5e.png")
-            }
-            onMouseLeave={handleMouseLeave}
-          >
-            <div className="recipe box">
-              <p className="projecttitle">The Recipe.</p>
-              <div className="languages">
-                <p className="language">node.js</p>
-                <p className="language">css</p>
-                <p className="language">react</p>
-                <p className="language">axios</p>
-                <p className="language">express</p>
+            {/* DND Adventurer's Atlas */}
+            <div
+              className="project-card"
+              onMouseEnter={() =>
+                handleMouseEnter("https://i.imgur.com/VPO3OSe.png")
+              }
+              onMouseLeave={handleMouseLeave}
+            >
+              <div className="card-content">
+                <h3 className="project-title">DND Adventurer's Atlas</h3>
+                <p className="project-languages">
+                  Node.js, MongoDB, React, CSS, Axios, Express
+                </p>
+              </div>
+              <div className="image-mask">
+                <img
+                  src="https://i.imgur.com/VPO3OSe.png"
+                  alt="DND Adventurer's Atlas Preview"
+                  className="project-image"
+                />
               </div>
             </div>
-          </a>
 
-          {/* Daisy Drop */}
-          <a
-            className="projectLink"
-            href="https://github.com/kfharoun/Daisy-Drop"
-            target="_blank"
-            onMouseEnter={() =>
-              handleMouseEnter("https://i.imgur.com/P5ErQfE.png")
-            }
-            onMouseLeave={handleMouseLeave}
-          >
-            <div className="daisydrop box">
-              <p className="projecttitle">Daisy Drop!</p>
-              <div className="languages">
-                <p className="language">javascript</p>
-                <p className="language">css</p>
+            {/* The Recipe */}
+            <div
+              className="project-card"
+              onMouseEnter={() =>
+                handleMouseEnter("https://i.imgur.com/PaggU5e.png")
+              }
+              onMouseLeave={handleMouseLeave}
+            >
+              <div className="card-content">
+                <h3 className="project-title">The Recipe</h3>
+                <p className="project-languages">
+                  Node.js, CSS, React, Axios, Express
+                </p>
+              </div>
+              <div className="image-mask">
+                <img
+                  src="https://i.imgur.com/PaggU5e.png"
+                  alt="The Recipe Preview"
+                  className="project-image"
+                />
               </div>
             </div>
-          </a>
 
-          {/* Barbie Collector's Closet */}
-          <a
-            className="projectLink"
-            href="https://github.com/kfharoun/barbie_dream_closet_api"
-            target="_blank"
-            onMouseEnter={() =>
-              handleMouseEnter("https://i.imgur.com/pF2DcH2.png")
-            }
-            onMouseLeave={handleMouseLeave}
-          >
-            <div className="barbie box">
-              <p className="projecttitle">Barbie Collector's Closet</p>
-              <div className="languages">
-                <p className="language">node.js</p>
-                <p className="language">mongodb</p>
-                <p className="language">javascript</p>
-                <p className="language">css</p>
-                <p className="language">axios</p>
+            {/* Daisy Drop */}
+            <div
+              className="project-card"
+              onMouseEnter={() =>
+                handleMouseEnter("https://i.imgur.com/P5ErQfE.png")
+              }
+              onMouseLeave={handleMouseLeave}
+            >
+              <div className="card-content">
+                <h3 className="project-title">Daisy Drop!</h3>
+                <p className="project-languages">JavaScript, CSS</p>
+              </div>
+              <div className="image-mask">
+                <img
+                  src="https://i.imgur.com/P5ErQfE.png"
+                  alt="Daisy Drop Preview"
+                  className="project-image"
+                />
               </div>
             </div>
-          </a>
-          <div ref={bottomRef} />
 
-          <div
-            className="top"
-            onClick={scrollToTop}
-            style={{
-              textAlign: "center",
-              marginTop: "20px",
-              cursor: "pointer",
-            }}
-          >
-            <p className="flowerscroll two">scroll!</p>
+            {/* Barbie Collector's Closet */}
+            <div
+              className="project-card"
+              onMouseEnter={() =>
+                handleMouseEnter("https://i.imgur.com/pF2DcH2.png")
+              }
+              onMouseLeave={handleMouseLeave}
+            >
+              <div className="card-content">
+                <h3 className="project-title">Barbie Collector's Closet</h3>
+                <p className="project-languages">
+                  Node.js, MongoDB, JavaScript, CSS, Axios
+                </p>
+              </div>
+              <div className="image-mask">
+                <img
+                  src="https://i.imgur.com/pF2DcH2.png"
+                  alt="Barbie Collector's Closet Preview"
+                  className="project-image"
+                />
+              </div>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Image display */}
-      {showImage && !isMobile && (
-        <img
-          src={imageSrc}
-          alt="Hovered Image"
+        <div
+          class="top"
+          onClick={scrollToTop}
           style={{
-            position: "fixed",
-            top: mouseY + 10,
-            left: mouseX + 10,
-            width: "300px",
-            height: "auto",
-            zIndex: 10,
-            borderRadius: "30px",
-            transform:
-              mouseX > window.innerWidth / 1.5 ? "translateX(-100%)" : "none",
+            textAlign: "center",
+            marginTop: "20px",
+            cursor: "pointer",
           }}
-        />
-      )}
-    </div>
+        >
+          <p class="flowerscroll two">scroll!</p>
+        </div>
+      </div>
   );
 }
