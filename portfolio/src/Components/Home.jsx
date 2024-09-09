@@ -484,12 +484,36 @@ export default function Home() {
               <div className="card-content">
                 <h3 className="project-title">POTS Pal</h3>
                 <p className="project-languages">
-                  Python, Django, React, SCSS, Axios
+                  Figma, Python, Django, React, SCSS, Axios
                 </p>
               </div>
               <div className="image-mask">
                 <img
-                  src="https://i.imgur.com/V0zuoQG.png"
+                  src="https://i.imgur.com/xO9mH1m.png"
+                  alt="POTS Pal Preview"
+                  className="project-image"
+                />
+              </div>
+            </div>
+
+
+            {/* WBT */}
+            <div
+              className="project-card"
+              onMouseEnter={() =>
+                handleMouseEnter("https://i.imgur.com/dg1FS5L.png")
+              }
+              onMouseLeave={handleMouseLeave}
+            >
+              <div className="card-content">
+                <h3 className="project-title">WBT Website Re-Design</h3>
+                <p className="project-languages">
+                  Figma, Liquid, Ruby, CSS, JavaScript, HTML5
+                </p>
+              </div>
+              <div className="image-mask">
+                <img
+                  src="https://i.imgur.com/dg1FS5L.png"
                   alt="POTS Pal Preview"
                   className="project-image"
                 />
@@ -514,29 +538,6 @@ export default function Home() {
                 <img
                   src="https://i.imgur.com/VPO3OSe.png"
                   alt="DND Adventurer's Atlas Preview"
-                  className="project-image"
-                />
-              </div>
-            </div>
-
-            {/* The Recipe */}
-            <div
-              className="project-card"
-              onMouseEnter={() =>
-                handleMouseEnter("https://i.imgur.com/PaggU5e.png")
-              }
-              onMouseLeave={handleMouseLeave}
-            >
-              <div className="card-content">
-                <h3 className="project-title">The Recipe</h3>
-                <p className="project-languages">
-                  Node.js, CSS, React, Axios, Express
-                </p>
-              </div>
-              <div className="image-mask">
-                <img
-                  src="https://i.imgur.com/PaggU5e.png"
-                  alt="The Recipe Preview"
                   className="project-image"
                 />
               </div>

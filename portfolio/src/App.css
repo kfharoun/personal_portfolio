@@ -482,9 +482,7 @@ main {
   opacity: 0; /* Hide the text content on hover */
 }
 
-.project-card:hover  {
-  border: none;
-}
+
 @-webkit-keyframes ani {
   from {
     -webkit-mask-position: 100% 0;
