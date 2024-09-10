@@ -94,10 +94,7 @@ main {
 }
 
 .mainComponent {
-  margin: -23em 0 1em;
-}
-.middle-container {
-  margin:20em 0 30em;
+  margin: -23em 0 14em;
 }
 
 .aroundName {
@@ -273,29 +270,29 @@ main {
   animation-name: flip-horizontal-reverse;
 }
 
-@keyframes flip-horizontal {
+/* @keyframes flip-horizontal {
   0% {
-    transform: rotateX(0); /* Starting point */
+    transform: rotateX(0);
   }
   50% {
-    transform: rotateX(180deg); /* Halfway through the flip */
+    transform: rotateX(180deg); 
   }
   100% {
-    transform: rotateX(360deg); /* Full flip */
+    transform: rotateX(360deg); 
   }
 }
 
 @keyframes flip-horizontal-reverse {
   0% {
-    transform: rotateX(0); /* Starting point */
+    transform: rotateX(0); 
   }
   50% {
-    transform: rotateX(-180deg); /* Halfway through the flip */
+    transform: rotateX(-180deg);
   }
   100% {
-    transform: rotateX(-360deg); /* Full flip */
+    transform: rotateX(-360deg); 
   }
-}
+} */
 
 @keyframes spin {
   from {
@@ -368,6 +365,7 @@ main {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.617);
 }
 
+
 /* The animation keyframes */
 @keyframes rotate {
   0% {
@@ -404,6 +402,16 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+
+
+.image-container.second {
+  position: absolute;
+  z-index: -10;
+  width: 100%;
+  height: 100%;
+  margin-top: 27em;
 }
 
 .masked-image {
@@ -454,15 +462,20 @@ main {
   position: relative;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+  gap: 13em;
   padding: 10px;
+  margin-bottom: 20em;
+}
+.middle-container {
+  position: relative;
+  grid-column: span 2;
 }
 
 .project-card {
   position: relative;
-  border: 2px solid #000;
-  padding-top:10em;
-  padding-bottom: 10em;
+  /* border: 2px dashed #000; */
+  padding-top:12em;
+  padding-bottom: 12em;
   overflow: hidden;
   text-align: center;
   transition: all 1s ease;
@@ -502,11 +515,20 @@ main {
   transition: mask-position 0.7s steps(70), -webkit-mask-position 0.7s steps(70);
 }
 
+
 .project-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* filter: brightness(1.2) contrast(0.9) blur(.5px) saturate(1.2); */
+  mask-image: url('./assets/picwave.svg');
+  -webkit-mask-image: url('./assets/picwave.svg');
+  /* Ensuring the mask is properly sized and positioned */
+  mask-size: contain;
+  -webkit-mask-size: contain;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-position: center;
 }
 
 .goddex {
@@ -546,6 +568,7 @@ main {
     mask-position: 0 0;
   }
 }
+
 
 /* Contact Page */
 
@@ -648,6 +671,8 @@ main {
   gap: 20px;
   padding-bottom: 50px;
 }
+
+
 
 /* About */
 
