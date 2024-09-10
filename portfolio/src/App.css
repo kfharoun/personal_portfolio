@@ -94,7 +94,10 @@ main {
 }
 
 .mainComponent {
-  margin: -23em 0 35em;
+  margin: -23em 0 1em;
+}
+.middle-container {
+  margin:20em 0 30em;
 }
 
 .aroundName {
@@ -249,6 +252,49 @@ main {
 
 .bottom:hover .word-circle, .top:hover .word-circle {
   animation: spin 10s infinite linear;
+}
+
+.middle-image, .wavey-image {
+  transform: rotateY(0); /* Initial state, no rotation */
+  transition: transform 0.6s ease-out; /* Smooth return to normal */
+}
+
+.middle-image.scrolling, .wavey-image.scrolling {
+  animation-duration: 1.5s; /* The total time for one full flip */
+  animation-timing-function: ease-in-out; /* Smooth animation */
+  animation-iteration-count: 1; /* Ensure the animation only happens once per scroll */
+}
+
+.middle-image.scrolling {
+  animation-name: flip-horizontal;
+}
+
+.wavey-image.scrolling {
+  animation-name: flip-horizontal-reverse;
+}
+
+@keyframes flip-horizontal {
+  0% {
+    transform: rotateX(0); /* Starting point */
+  }
+  50% {
+    transform: rotateX(180deg); /* Halfway through the flip */
+  }
+  100% {
+    transform: rotateX(360deg); /* Full flip */
+  }
+}
+
+@keyframes flip-horizontal-reverse {
+  0% {
+    transform: rotateX(0); /* Starting point */
+  }
+  50% {
+    transform: rotateX(-180deg); /* Halfway through the flip */
+  }
+  100% {
+    transform: rotateX(-360deg); /* Full flip */
+  }
 }
 
 @keyframes spin {

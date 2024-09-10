@@ -1,16 +1,11 @@
 import { useState, useRef, useEffect } from "react";
-import WaveyBack from "../assets/waveyback.svg";
 import WaveyAccent from "../assets/waveyaccent.svg";
+import waveymiddleback from "../assets/waveymiddleback.svg";
+import waveymiddletop from "../assets/waveymiddletop.svg";
 
 export default function Home() {
-  const [mouseX, setMouseX] = useState(null);
-  const [mouseY, setMouseY] = useState(null);
-  const [showImage, setShowImage] = useState(false);
-  const [imageSrc, setImageSrc] = useState("");
-  const [imagePosition, setImagePosition] = useState({ x: 0, y: 0 });
   const bottomRef = useRef(null);
   const topRef = useRef(null);
-  const productDesignRef = useRef(null);
   const titles = [
     "Full Stack Dev",
     "Product Design",
@@ -31,6 +26,7 @@ export default function Home() {
   const [textVisible, setTextVisible] = useState(true);
   const [opacity, setOpacity] = useState(1);
   const [nameVisible, setNameVisible] = useState(true);
+  const [isScrolling, setIsScrolling] = useState(false);
 
   useEffect(() => {
     const checkIfMobile = () => {
@@ -119,37 +115,45 @@ export default function Home() {
       const maxScroll = 30; // Scroll threshold where blur should disappear and text hides
       const maxOpacity = 1; // Maximum opacity value
 
-      // Calculate the new blur value based on scroll position
+      // Calculate new blur value based on scroll position
       const newBlurValue = Math.max(
         maxBlur - (scrollPosition / maxScroll) * maxBlur,
         0
       );
       setBlurValue(newBlurValue); // Update the blur value
 
+      // Calculate new opacity based on scroll position
       const newOpacity = Math.max(
         maxOpacity - (scrollPosition / maxScroll) * maxOpacity,
-        0.5 // Update the opacity value
+        0.5
       );
-      setOpacity(newOpacity);
+      setOpacity(newOpacity); // Update the opacity value
 
-      if (scrollPosition >= maxScroll) {
-        setNameVisible(false); // Hide text when scrolling beyond maxScroll
-      } else {
-        setNameVisible(true); // Show text when above maxScroll
-      }
-
-      // Set text visibility based on scroll position
-      if (scrollPosition >= maxScroll) {
-        setTextVisible(false); // Hide text when scrolling beyond maxScroll
-      } else {
-        setTextVisible(true); // Show text when above maxScroll
-      }
+      // Determine visibility based on scroll position
+      const isVisible = scrollPosition < maxScroll;
+      setNameVisible(isVisible);
+      setTextVisible(isVisible);
     };
 
     window.addEventListener("scroll", handleScroll);
 
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+  // Scroll event handler
+  const handleScrollForMiddle = () => {
+    setIsScrolling(true);
+    clearTimeout(window.scrollTimeout);
+
+    // Set a timeout to stop the animation when scrolling ends
+    window.scrollTimeout = setTimeout(() => {
+      setIsScrolling(false);
+    },1400); // Delay in milliseconds before stopping the animation after scroll
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScrollForMiddle);
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", handleScrollForMiddle);
     };
   }, []);
 
@@ -449,7 +453,25 @@ export default function Home() {
             </div>
           </div>
         </div>
-
+        <div className="middle-container">
+          {/* Image and Wavey Accent Container */}
+          <div className="image-container">
+            <img
+              src={waveymiddleback}
+              alt="Background"
+              className={`middle-image ${isScrolling ? 'scrolling' : ''}`}
+            />
+            <div className="wavey-accent">
+              <img
+                src={waveymiddletop}
+                alt="Wavey Accent"
+                className={`wavey-image ${
+                  isScrolling? "scrolling" : ""
+                }`}
+              />
+            </div>
+          </div>
+        </div>
         <div className="project-grid">
           {/* Portfolio Images */}
           <div
