@@ -524,7 +524,7 @@ export default function Home() {
             <div
               className="project-card"
               onMouseEnter={() =>
-                handleMouseEnter("https://i.imgur.com/VPO3OSe.png")
+                handleMouseEnter("https://i.imgur.com/Q9uWRag.png")
               }
               onMouseLeave={handleMouseLeave}
             >
@@ -536,7 +536,7 @@ export default function Home() {
               </div>
               <div className="image-mask">
                 <img
-                  src="https://i.imgur.com/VPO3OSe.png"
+                  src="https://i.imgur.com/Q9uWRag.png"
                   alt="DND Adventurer's Atlas Preview"
                   className="project-image"
                 />
@@ -547,17 +547,17 @@ export default function Home() {
             <div
               className="project-card"
               onMouseEnter={() =>
-                handleMouseEnter("https://i.imgur.com/P5ErQfE.png")
+                handleMouseEnter("https://i.imgur.com/DmJvypT.png")
               }
               onMouseLeave={handleMouseLeave}
             >
               <div className="card-content">
                 <h3 className="project-title">Daisy Drop!</h3>
-                <p className="project-languages">JavaScript, CSS</p>
+                <p className="project-languages">JavaScript, CSS, HTML5</p>
               </div>
               <div className="image-mask">
                 <img
-                  src="https://i.imgur.com/P5ErQfE.png"
+                  src="https://i.imgur.com/DmJvypT.png"
                   alt="Daisy Drop Preview"
                   className="project-image"
                 />
@@ -575,12 +575,12 @@ export default function Home() {
               <div className="card-content">
                 <h3 className="project-title">Barbie Collector's Closet</h3>
                 <p className="project-languages">
-                  Node.js, MongoDB, JavaScript, CSS, Axios
+                  Node.js, MongoDB, JavaScript, CSS, Axios, HTML5
                 </p>
               </div>
               <div className="image-mask">
                 <img
-                  src="https://i.imgur.com/pF2DcH2.png"
+                  src="https://i.imgur.com/8ATLetV.png"
                   alt="Barbie Collector's Closet Preview"
                   className="project-image"
                 />
