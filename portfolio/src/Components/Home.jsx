@@ -147,7 +147,7 @@ export default function Home() {
     // Set a timeout to stop the animation when scrolling ends
     window.scrollTimeout = setTimeout(() => {
       setIsScrolling(false);
-    },1400); // Delay in milliseconds before stopping the animation after scroll
+    }, 1400); // Delay in milliseconds before stopping the animation after scroll
   };
 
   useEffect(() => {
@@ -454,173 +454,192 @@ export default function Home() {
           </div>
         </div>
         <div className="project-grid">
-  {/* First Row */}
-  <div className="middle-container">
-    {/* Image and Wavey Accent Container */}
-    <div className="image-container second">
-      <img
-        src={waveymiddleback}
-        alt="Background"
-        className={`middle-image ${isScrolling ? 'scrolling' : ''}`}
-      />
-      <div className="wavey-accent">
-        <img
-          src={waveymiddletop}
-          alt="Wavey Accent"
-          className={`wavey-image ${isScrolling ? 'scrolling' : ''}`}
-        />
-      </div>
-    </div>
-  </div>
+          {/* First Row */}
+          <div className="middle-container">
+            {/* Image and Wavey Accent Container */}
+            <div className="image-container second">
+              <img
+                src={waveymiddleback}
+                alt="Background"
+                className={`middle-image ${isScrolling ? "scrolling" : ""}`}
+              />
+              <div className="wavey-accent">
+                <img
+                  src={waveymiddletop}
+                  alt="Wavey Accent"
+                  className={`wavey-image ${isScrolling ? "scrolling" : ""}`}
+                />
+              </div>
+            </div>
+          </div>
 
-  <div className="project-card " ref={bottomRef} 
-    onMouseEnter={() => handleMouseEnter("https://i.imgur.com/BE9vvqy.jpeg")}
-    onMouseLeave={handleMouseLeave}
-  >
-    <div className="card-content">
-      <h3 className="project-title">GODDEX</h3>
-      <p className="project-languages">Product & Brand Design</p>
-    </div>
-    <div className="image-mask">
-      <img
-        src="https://i.imgur.com/5UroNuT.jpeg"
-        alt="Portfolio Images Preview"
-        className="project-image goddex"
-      />
-    </div>
-  </div>
+          <div
+            className="project-card "
+            ref={bottomRef}
+            onMouseEnter={() =>
+              handleMouseEnter("https://i.imgur.com/BE9vvqy.jpeg")
+            }
+            onMouseLeave={handleMouseLeave}
+          >
+            <div className="card-content">
+              <h3 className="project-title">GODDEX</h3>
+              <p className="project-languages">Product & Brand Design</p>
+            </div>
+            <div className="image-mask">
+              <img
+                src="https://i.imgur.com/5UroNuT.jpeg"
+                alt="Portfolio Images Preview"
+                className="project-image goddex"
+              />
+            </div>
+          </div>
 
-  <div className="project-card"
-    onMouseEnter={() => handleMouseEnter("https://i.imgur.com/V0zuoQG.png")}
-    onMouseLeave={handleMouseLeave}
-  >
-    <div className="card-content">
-      <h3 className="project-title">POTS Pal</h3>
-      <p className="project-languages">
-        Figma, Python, Django, React, SCSS, Axios
-      </p>
-    </div>
-    <div className="image-mask">
-      <img
-        src="https://i.imgur.com/xO9mH1m.png"
-        alt="POTS Pal Preview"
-        className="project-image"
-      />
-    </div>
-  </div>
+          <div
+            className="project-card"
+            onMouseEnter={() =>
+              handleMouseEnter("https://i.imgur.com/V0zuoQG.png")
+            }
+            onMouseLeave={handleMouseLeave}
+          >
+            <div className="card-content">
+              <h3 className="project-title">POTS Pal</h3>
+              <p className="project-languages">
+                Figma, Python, Django, React, SCSS, Axios
+              </p>
+            </div>
+            <div className="image-mask">
+              <img
+                src="https://i.imgur.com/xO9mH1m.png"
+                alt="POTS Pal Preview"
+                className="project-image"
+              />
+            </div>
+          </div>
 
-  {/* Second Row */}
-  <div className="middle-container">
-    {/* Image and Wavey Accent Container */}
-    <div className="image-container second">
-      <img
-        src={waveymiddleback}
-        alt="Background"
-        className={`middle-image ${isScrolling ? 'scrolling' : ''}`}
-      />
-      <div className="wavey-accent">
-        <img
-          src={waveymiddletop}
-          alt="Wavey Accent"
-          className={`wavey-image ${isScrolling ? 'scrolling' : ''}`}
-        />
-      </div>
-    </div>
-  </div>
+          {/* Second Row */}
+          <div className="middle-container">
+            {/* Image and Wavey Accent Container */}
+            <div className="image-container second">
+              <img
+                src={waveymiddleback}
+                alt="Background"
+                className={`middle-image ${isScrolling ? "scrolling" : ""}`}
+              />
+              <div className="wavey-accent">
+                <img
+                  src={waveymiddletop}
+                  alt="Wavey Accent"
+                  className={`wavey-image ${isScrolling ? "scrolling" : ""}`}
+                />
+              </div>
+            </div>
+          </div>
 
-  <div className="project-card"
-    onMouseEnter={() => handleMouseEnter("https://i.imgur.com/dg1FS5L.png")}
-    onMouseLeave={handleMouseLeave}
-  >
-    <div className="card-content">
-      <h3 className="project-title">WBT Website Re-Design</h3>
-      <p className="project-languages">
-        Figma, Liquid, Ruby, CSS, JavaScript, HTML5
-      </p>
-    </div>
-    <div className="image-mask">
-      <img
-        src="https://i.imgur.com/dg1FS5L.png"
-        alt="WBT Website Re-Design Preview"
-        className="project-image"
-      />
-    </div>
-  </div>
+          <div
+            className="project-card"
+            onMouseEnter={() =>
+              handleMouseEnter("https://i.imgur.com/dg1FS5L.png")
+            }
+            onMouseLeave={handleMouseLeave}
+          >
+            <div className="card-content">
+              <h3 className="project-title">WBT Website Re-Design</h3>
+              <p className="project-languages">
+                Figma, Liquid, Ruby, CSS, JavaScript, HTML5
+              </p>
+            </div>
+            <div className="image-mask">
+              <img
+                src="https://i.imgur.com/dg1FS5L.png"
+                alt="WBT Website Re-Design Preview"
+                className="project-image"
+              />
+            </div>
+          </div>
 
-  <div className="project-card"
-    onMouseEnter={() => handleMouseEnter("https://i.imgur.com/Q9uWRag.png")}
-    onMouseLeave={handleMouseLeave}
-  >
-    <div className="card-content">
-      <h3 className="project-title">DND Adventurer's Atlas</h3>
-      <p className="project-languages">
-        Node.js, MongoDB, React, CSS, Axios, Express
-      </p>
-    </div>
-    <div className="image-mask">
-      <img
-        src="https://i.imgur.com/Q9uWRag.png"
-        alt="DND Adventurer's Atlas Preview"
-        className="project-image"
-      />
-    </div>
-  </div>
+          <div
+            className="project-card"
+            onMouseEnter={() =>
+              handleMouseEnter("https://i.imgur.com/Q9uWRag.png")
+            }
+            onMouseLeave={handleMouseLeave}
+          >
+            <div className="card-content">
+              <h3 className="project-title">DND Adventurer's Atlas</h3>
+              <p className="project-languages">
+                Node.js, MongoDB, React, CSS, Axios, Express
+              </p>
+            </div>
+            <div className="image-mask">
+              <img
+                src="https://i.imgur.com/Q9uWRag.png"
+                alt="DND Adventurer's Atlas Preview"
+                className="project-image"
+              />
+            </div>
+          </div>
 
-  {/* Third Row */}
-  <div className="middle-container">
-    {/* Image and Wavey Accent Container */}
-    <div className="image-container second">
-      <img
-        src={waveymiddleback}
-        alt="Background"
-        className={`middle-image ${isScrolling ? 'scrolling' : ''}`}
-      />
-      <div className="wavey-accent">
-        <img
-          src={waveymiddletop}
-          alt="Wavey Accent"
-          className={`wavey-image ${isScrolling ? 'scrolling' : ''}`}
-        />
-      </div>
-    </div>
-  </div>
+          {/* Third Row */}
+          <div className="middle-container">
+            {/* Image and Wavey Accent Container */}
+            <div className="image-container second">
+              <img
+                src={waveymiddleback}
+                alt="Background"
+                className={`middle-image ${isScrolling ? "scrolling" : ""}`}
+              />
+              <div className="wavey-accent">
+                <img
+                  src={waveymiddletop}
+                  alt="Wavey Accent"
+                  className={`wavey-image ${isScrolling ? "scrolling" : ""}`}
+                />
+              </div>
+            </div>
+          </div>
 
-  <div className="project-card"
-    onMouseEnter={() => handleMouseEnter("https://i.imgur.com/DmJvypT.png")}
-    onMouseLeave={handleMouseLeave}
-  >
-    <div className="card-content">
-      <h3 className="project-title">Daisy Drop!</h3>
-      <p className="project-languages">JavaScript, CSS, HTML5</p>
-    </div>
-    <div className="image-mask">
-      <img
-        src="https://i.imgur.com/DmJvypT.png"
-        alt="Daisy Drop Preview"
-        className="project-image"
-      />
-    </div>
-  </div>
+          <div
+            className="project-card"
+            onMouseEnter={() =>
+              handleMouseEnter("https://i.imgur.com/DmJvypT.png")
+            }
+            onMouseLeave={handleMouseLeave}
+          >
+            <div className="card-content">
+              <h3 className="project-title">Daisy Drop!</h3>
+              <p className="project-languages">JavaScript, CSS, HTML5</p>
+            </div>
+            <div className="image-mask">
+              <img
+                src="https://i.imgur.com/DmJvypT.png"
+                alt="Daisy Drop Preview"
+                className="project-image"
+              />
+            </div>
+          </div>
 
-  <div className="project-card"
-    onMouseEnter={() => handleMouseEnter("https://i.imgur.com/pF2DcH2.png")}
-    onMouseLeave={handleMouseLeave}
-  >
-    <div className="card-content">
-      <h3 className="project-title">Barbie Collector's Closet</h3>
-      <p className="project-languages">
-        Node.js, MongoDB, JavaScript, CSS, Axios, HTML5
-      </p>
-    </div>
-    <div className="image-mask">
-      <img
-        src="https://i.imgur.com/8ATLetV.png"
-        alt="Barbie Collector's Closet Preview"
-        className="project-image"
-      />
-    </div>
-  </div>
-</div>
+          <div
+            className="project-card"
+            onMouseEnter={() =>
+              handleMouseEnter("https://i.imgur.com/pF2DcH2.png")
+            }
+            onMouseLeave={handleMouseLeave}
+          >
+            <div className="card-content">
+              <h3 className="project-title">Barbie Collector's Closet</h3>
+              <p className="project-languages">
+                Node.js, MongoDB, JavaScript, CSS, Axios, HTML5
+              </p>
+            </div>
+            <div className="image-mask">
+              <img
+                src="https://i.imgur.com/8ATLetV.png"
+                alt="Barbie Collector's Closet Preview"
+                className="project-image"
+              />
+            </div>
+          </div>
+        </div>
 
         <div
           className="top"
@@ -629,9 +648,9 @@ export default function Home() {
             transform: "scale(2)",
             position: "absolute",
             cursor: "pointer",
-            bottom: "-208em",
+            bottom: "-170em",
             zIndex: "100",
-            left: "7%",
+            left: "13%",
           }}
         >
           <svg
