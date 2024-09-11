@@ -411,7 +411,7 @@ main {
   z-index: -10;
   width: 100%;
   height: 100%;
-  margin-top: 27em;
+  margin-top: 26em;
 }
 
 .masked-image {
@@ -462,7 +462,7 @@ main {
   position: relative;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 13em;
+  gap: 8em;
   padding: 10px;
   margin-bottom: 20em;
 }
@@ -471,6 +471,13 @@ main {
   grid-column: span 2;
 }
 
+.image-container.second {
+  position: absolute;
+  z-index: -10;
+  width: 100%;
+  height: 100%;
+  margin-top: 22em;
+}
 .project-card {
   position: relative;
   /* border: 2px dashed #000; */
