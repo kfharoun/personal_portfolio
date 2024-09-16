@@ -17,7 +17,7 @@ main {
 .header {
   /* position: sticky; */
   top: 0;
-  width: 100%;
+  max-width: 100%;
   align-items: center;
   font-size: 1em;
   padding-top: 40px;
@@ -96,12 +96,17 @@ main {
 .mainComponent {
   margin: -15% 0 14em;
 }
-/* 
-@media screen and (min-width: 800px) and (max-width: 1999px) {
+
+@media screen and (min-width: 1200px) and (max-width: 1400px) {
   .mainComponent {
-    margin-top: -20em;
+    margin-top: -2em;
   }
-} */
+
+  .bottom {
+    margin-left: 10em;
+    bottom: 2em !important;
+  }
+}
 
 .aroundName {
   font-size: 2em;
