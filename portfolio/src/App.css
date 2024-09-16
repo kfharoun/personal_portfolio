@@ -739,20 +739,8 @@ main {
 }
 
 @media screen and (max-width: 500px) {
-  /* home */
-  .allhome {
-    width: 430px;
-    top: 6%;
-    max-width: 100%;
-    overflow-y: auto;
-    position: relative;
-    max-height: 75vh;
-  }
+  
 
-  .name {
-    font-size: 50px;
-    text-align: center;
-  }
 
   .aroundName.mobile {
     font-size: 18px;
@@ -775,57 +763,6 @@ main {
   .aroundName.desktop {
     display: none;
   }
-
-  @keyframes fadeOut {
-    0% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    50% {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    100% {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-  }
-
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    50% {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .flower1 {
-    margin-left: -10px;
-    margin-top: 10px;
-    width: 35px;
-    height: 35px;
-  }
-
-  .flower2 {
-    margin-left: 12em;
-  }
-  .bottom {
-    margin-left: 14em;
-    width: 70px;
-    height: 70px;
-    bottom: 2em;
-  }
-
-  /* .mainComponent {
-    margin-top: 180px;
-  } */
 
   .title {
     font-size: 23px;
@@ -1007,5 +944,81 @@ main {
   .goddex {
     max-width: 100%;
     object-position: right 60%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .mainComponent {
+    margin-top: 10em;
+  }
+:root {
+  display: block;
+  width: 100%;
+}
+  .bottom {
+    bottom:-1em !important;
+  }
+
+  .header-links {
+    font-size: 1.3em;
+    gap: 90%;
+  }
+
+  .name {
+    font-size: 90px;
+  }
+
+  .animated-text{ 
+    font-size: 1em;
+  }
+
+  .image-mask {
+    width: 1000px;
+  }
+
+  .goddex {
+    max-width: 100%;
+    object-position: right 60%;
+  }
+  .allhome {
+    width: 100%; /* Make it responsive */
+    top: 6%;
+    max-width: 100%;
+    max-height: 75vh;
+  }
+
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* To prevent horizontal scrolling */
+  }
+
+  .image-container {
+    max-width: 100%;
+    height: auto;
+  }
+  .masked-image {
+    width: 100%;
+    height: auto;
+    opacity: 100%;
+    transform: scale(1.4);
+    -webkit-mask-size: cover;
+  }
+
+  .wavey-accent {
+    width: 100%;
+    height: auto;
+    top: -500px;
+    left: -190px;
+    transform: scale(0.8); 
+  }
+
+  .text-container h1.name {
+    font-size: 2.5em; 
+  }
+
+  .aroundName.mobile {
+    font-size: 1.5em; 
   }
 }
