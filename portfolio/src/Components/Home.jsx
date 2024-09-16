@@ -42,32 +42,26 @@ export default function Home() {
 
   useEffect(() => {
     if (isMobile) {
+      // Synchronize both title change and word rotation in a single interval
       const interval = setInterval(() => {
-        setAnimationClass("fadeOut");
+        // Update the title
+        setCurrentTitle((prevTitle) => {
+          const currentIndex = titles.indexOf(prevTitle);
+          const nextIndex = (currentIndex + 1) % titles.length;
+          return titles[nextIndex];
+        });
 
-        setTimeout(() => {
-          setCurrentTitle((prevTitle) => {
-            const currentIndex = titles.indexOf(prevTitle);
-            const nextIndex = (currentIndex + 1) % titles.length;
-            return titles[nextIndex];
-          });
-          setAnimationClass("fadeIn");
-        }, 500);
-      }, 2000);
+        // Update the rotating word index at the same interval
+        setCurrentWordIndex(
+          (prevIndex) => (prevIndex + 1) % rotatingWords.length
+        );
+
+        // No need for setTimeout or additional animation class
+      }, 3000); // Set both intervals to 3000ms (3 seconds)
 
       return () => clearInterval(interval);
     }
-  }, [currentTitle, isMobile]);
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentWordIndex(
-        (prevIndex) => (prevIndex + 1) % rotatingWords.length
-      );
-    }, 3000);
-
-    return () => clearInterval(intervalId); // Clean up interval on component unmount
-  }, []);
+  }, [isMobile, titles, rotatingWords]);
 
   const handleMouseEnter = (imageSrc) => {
     if (!isMobile) {
@@ -194,7 +188,9 @@ export default function Home() {
                   {rotatingWords[currentWordIndex]}
                 </span>
               </h4>
-              <div className={`aroundName mobile ${animationClass}`}>
+              <div
+                className={`aroundName mobile animated-text ${animationClass}`}
+              >
                 {currentTitle}
               </div>
               <h1
@@ -230,7 +226,7 @@ export default function Home() {
                 cursor: "pointer",
                 bottom: "45vh",
                 zIndex: "100",
-                left: "calc(93% - 120px)"
+                left: "calc(93% - 120px)",
               }}
             >
               <svg

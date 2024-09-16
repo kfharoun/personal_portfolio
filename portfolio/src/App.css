@@ -368,7 +368,6 @@ main {
 }
 
 
-/* The animation keyframes */
 @keyframes rotate {
   0% {
     transform: rotateX(90deg);
@@ -739,25 +738,20 @@ main {
 }
 
 @media screen and (max-width: 500px) {
+
+  
   
 
 
   .aroundName.mobile {
     font-size: 18px;
-    text-transform: lowercase;
-    color: #d8743e;
+    text-transform: uppercase;
+    font-style: italic;
     display: flex;
     justify-content: center;
     margin-bottom: 10px;
     letter-spacing: 2px;
     transition: opacity 0.5s ease-in-out;
-  }
-  .aroundName.mobile.fadeOut {
-    animation: fadeOut 1s forwards;
-  }
-
-  .aroundName.mobile.fadeIn {
-    animation: fadeIn 1s forwards;
   }
 
   .aroundName.desktop {
@@ -783,6 +777,50 @@ main {
     align-items: flex-start;
     max-height: 110px;
     max-width: 240px;
+  }
+
+  .rotating-text {
+    transition: opacity 0.5s ease-in-out;
+    font-family: "Xanh Mono", monospace;
+    font-weight: 400;
+    color: white;
+  }
+  
+  .developer {
+    text-align: left;
+  }
+  .animated-text {
+    display: inline-block;
+    animation: rotate 3s ease-in-out infinite;
+    transform-origin: 50% 50%;
+    font-family: "Xanh Mono", monospace;
+    font-weight: 400;
+    font-size: 1.2em;
+    /* font-style: italic; */
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.617);
+  }
+  
+  
+  @keyframes rotate {
+    0% {
+      transform: rotateX(90deg);
+      opacity: 0;
+    }
+    25% {
+      transform: rotateX(0deg);
+      opacity: 1;
+    }
+    75% {
+      transform: rotateX(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: rotateX(-90deg);
+      opacity: 0;
+    }
   }
 
   .language {
