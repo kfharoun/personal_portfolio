@@ -228,9 +228,9 @@ export default function Home() {
                 transform: "scale(1.5)",
                 position: "absolute",
                 cursor: "pointer",
-                bottom: "28em",
+                bottom: "45vh",
                 zIndex: "100",
-                left: "87%",
+                left: "calc(93% - 120px)"
               }}
             >
               <svg
