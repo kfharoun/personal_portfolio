@@ -999,4 +999,13 @@ main {
   .animated-text{ 
     font-size: 1em;
   }
+
+  .image-mask {
+    width: 1000px;
+  }
+
+  .goddex {
+    max-width: 100%;
+    object-position: right 60%;
+  }
 }
