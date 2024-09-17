@@ -994,7 +994,9 @@ main {
   width: 100%;
 }
   .bottom {
-    bottom:-1em !important;
+    bottom:-5em !important;
+    left: -10px;
+    transform: scale(0.72);
   }
 
   .header-links {
@@ -1058,5 +1060,9 @@ main {
 
   .aroundName.mobile {
     font-size: 1.5em; 
+  }
+
+  .arrrow.bottom {
+    top: 100px !important;
   }
 }

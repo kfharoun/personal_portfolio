@@ -230,6 +230,7 @@ export default function Home() {
               }}
             >
               <svg
+                className="arrow bottom"
                 width="137"
                 height="128"
                 viewBox="0 0 137 128"
