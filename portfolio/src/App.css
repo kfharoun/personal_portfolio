@@ -863,7 +863,6 @@ main {
     gap: 30%;
     font-size: 20px;
     bottom: 0;
-    position: fixed;
   }
 
   /* portfolio */
@@ -997,6 +996,14 @@ main {
     bottom:-5em !important;
     left: -10px;
     transform: scale(0.72);
+    display: none;
+  }
+
+  .top {
+    bottom: 0;
+    left: -10px;
+    transform: scale(0.72);
+    display: none;
   }
 
   .header-links {
@@ -1027,11 +1034,12 @@ main {
     max-height: 75vh;
   }
 
-  html, body {
-    height: 100%;
+  html, body, .allhome {
+    height: auto; 
+    min-height: 100vh; 
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* To prevent horizontal scrolling */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
   }
 
   .image-container {
@@ -1062,7 +1070,4 @@ main {
     font-size: 1.5em; 
   }
 
-  .arrrow.bottom {
-    top: 100px !important;
-  }
 }
