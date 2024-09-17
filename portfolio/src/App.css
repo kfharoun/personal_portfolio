@@ -987,6 +987,7 @@ main {
 @media screen and (max-width: 600px) {
   .mainComponent {
     margin-top: 10em;
+    margin-bottom: 20em;
   }
 :root {
   display: block;
@@ -1046,6 +1047,24 @@ main {
     max-width: 100%;
     height: auto;
   }
+
+  .image-container.second {
+    z-index: -10;
+    max-width: 100%;
+    height: 100%;
+    transform: scale(1);
+    -webkit-mask-size: cover;
+  }
+
+  .middle-image {
+    width: 500%;
+    height: auto;
+    opacity: 100%;
+    margin-bottom: 32em;
+    transform: scale(1);
+    margin-left: 400%;
+    -webkit-mask-size: cover;
+  }
   .masked-image {
     width: 100%;
     height: auto;
@@ -1060,6 +1079,12 @@ main {
     top: -500px;
     left: -190px;
     transform: scale(0.8); 
+  }
+
+  .project-grid {
+    gap: 1em;
+    padding: 10px;
+    margin-bottom: 5em;
   }
 
   .text-container h1.name {
